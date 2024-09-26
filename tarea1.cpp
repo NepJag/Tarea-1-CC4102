@@ -3,6 +3,7 @@
 #include <cmath>
 #include <random>
 #include <algorithm>
+using namespace std; // Para evitar escribir "std::"
 
 const int PAGE_SIZE = 1024; // Tamaño de página en bytes
 const int ELEMENT_SIZE = sizeof(long long); // Tamaño del elemento (64 bits)
@@ -97,3 +98,29 @@ int main() {
 
     return 0;
 }
+
+// Función para generar una secuencia de números secuenciales long long
+vector<long long> generateSequence(size_t N) {
+    vector<long long> sequence;
+    sequence.reserve(N); // Reservar espacio para evitar redimensionamiento
+
+    // Generar la secuencia secuencialmente
+    for (long long i = 0; i < N; ++i) {
+        sequence.push_back(i);
+    }
+
+    return sequence;
+}
+
+int main() {
+    size_t N = 1ULL << 24; // Ejemplo con 2^10 elementos
+    vector<long long> sequence = generateSequence(N);
+
+    // Imprimir algunos de los números generados
+    for (size_t i = 15999990; i < 16000000; ++i) {
+        cout << sequence[i] << endl;
+    }
+
+    return 0;
+}
+
